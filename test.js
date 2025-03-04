@@ -1,10 +1,18 @@
 const axios = require('axios');
 const async = require('async');
 
-const BASE_URL = 'http://localhost:3000/scrape'; // Change if hosted remotely
-const TOTAL_REQUESTS = 1000; // Adjust for higher stress
-const CONCURRENCY = 10; // Number of concurrent requests
+// Parse command line arguments
+const args = process.argv.slice(2);
+const TOTAL_REQUESTS = parseInt(args[0]) || 1000;    // Default to 1000 if not provided
+const CONCURRENCY = parseInt(args[1]) || 10;         // Default to 10 if not provided
 
+// Validate arguments
+if (isNaN(TOTAL_REQUESTS) || isNaN(CONCURRENCY)) {
+    console.error('❌ Invalid arguments. Usage: node test.js <total_requests> <concurrency>');
+    process.exit(1);
+}
+
+const BASE_URL = 'http://localhost:3000/test';
 let results = [];
 let successCount = 0;
 let failureCount = 0;
@@ -39,7 +47,12 @@ const makeRequest = async (i) => {
 
 // Performance & Rate Limit Testing
 (async () => {
-    console.log(`🚀 Starting stress test: ${TOTAL_REQUESTS} requests with concurrency ${CONCURRENCY}...`);
+    console.log(`
+🚀 Starting stress test with:
+   - Total Requests: ${TOTAL_REQUESTS}
+   - Concurrency: ${CONCURRENCY}
+   - Testing URL: ${BASE_URL}
+`);
 
     const testStart = Date.now(); // Track total test duration
 

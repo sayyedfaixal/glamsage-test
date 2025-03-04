@@ -1,0 +1,5 @@
+# Create a git ignore for nodemodules
+node_modules/
+package-lock.json
+.env
+.DS_Store

@@ -2,7 +2,7 @@ const axios = require('axios');
 const async = require('async');
 
 const BASE_URL = 'http://localhost:3000/scrape'; // Change if hosted remotely
-const TOTAL_REQUESTS = 100; // Adjust for higher stress
+const TOTAL_REQUESTS = 1000; // Adjust for higher stress
 const CONCURRENCY = 10; // Number of concurrent requests
 
 let results = [];

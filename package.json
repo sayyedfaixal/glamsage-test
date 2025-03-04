@@ -1,0 +1,26 @@
+{
+  "name": "glamsage-test",
+  "version": "1.0.0",
+  "description": "app for testing glamsage prototype",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashharr/glamsage-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashharr/glamsage-test/issues"
+  },
+  "homepage": "https://github.com/ashharr/glamsage-test#readme",
+  "dependencies": {
+    "async": "^3.2.6",
+    "axios": "^1.8.1",
+    "benchmark": "^2.1.4",
+    "cheerio": "^1.0.0",
+    "express": "^4.21.2"
+  }
+}
